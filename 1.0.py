@@ -5,6 +5,7 @@ import MySQLdb
 import urllib2
 import time
 import logging
+from lxml import etree
 from bs4 import BeautifulSoup
 #log_filename = 'error.log'
 #log_format = '%(asctime)s - %(filename) - %(levelname)'
@@ -15,7 +16,7 @@ while True:
 	addUrlNum = 0
 	req = urllib2.urlopen('http://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E6%9D%AD%E5%B7%9E&kw=php%E5%AE%9E%E4%B9%A0%E7%94%9F&sm=0&p=1')
 	buf = req.read()
-	soup = BeautifulSoup(buf,"html5lib")
+	soup = BeautifulSoup(buf,"lxml")
 	links = soup.find_all('a',href=re.compile(r'http://jobs.zhaopin.com/\d+\.htm'))
 	conn = MySQLdb.connect(host='localhost',port=3306,user='mac',passwd='123654',db='test')
 	cur = conn.cursor()
