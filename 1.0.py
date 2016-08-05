@@ -28,15 +28,15 @@ while True:
 			addUrlNum += 1
 	if addUrlNum == 0:
 		f = open('record.log','a')
-		note = "It's all in db." + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		note = "It's all in db. " + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
 		f.write(note+'\r\n')
 		#f.write("\n")
 		f.close()
 		#print "It's all in db."
 	else:
 		f = open('record.log','a')
-		note = "Add %d urls" %(addUrlNum) + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-		f.write(note)
+		note = "Add %d urls.     " %(addUrlNum) + time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+		f.write(note+'\r\n')
 		#f.write("\n")
 		f.close()
 		#print "Add %d urls" %(addUrlNum)
