@@ -7,7 +7,7 @@ req = urllib2.urlopen('http://sou.zhaopin.com/jobs/searchresult.ashx?jl=%E6%9D%A
 buf = req.read()
 soup = BeautifulSoup(buf,"html5lib")
 links = soup.find_all('a',href=re.compile(r'http://jobs.zhaopin.com/\d+\.htm'))
-conn = MySQLdb.connect(host='localhost',port=3306,user='mac',passwd='wcj185530',db='test')
+conn = MySQLdb.connect(host='localhost',port=3306,user='mac',passwd='',db='test')
 cur = conn.cursor()
 for link in links:
 	sql = "INSERT INTO urls (URL) VALUES ('%s')" %(link['href'])
